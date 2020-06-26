@@ -18,7 +18,9 @@ android {
 }
 
 dependencies {
-    compile 'com.pnikosis:materialish-progress:1.7'
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
 }
 
 // I may push to maven central at some point, for now just using jitpack.io.

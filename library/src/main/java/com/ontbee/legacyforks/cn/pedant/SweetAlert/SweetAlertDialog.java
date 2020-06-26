@@ -15,8 +15,11 @@ import android.view.animation.Transformation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.R;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -52,6 +55,8 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private Button mConfirmButton;
     private Button mCancelButton;
     private ProgressHelper mProgressHelper;
+
+    private ProgressBar progressBar;
     private FrameLayout mWarningFrame;
     private OnSweetClickListener mCancelClickListener;
     private OnSweetClickListener mConfirmClickListener;
@@ -77,6 +82,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         setCancelable(true);
         setCanceledOnTouchOutside(false);
         mProgressHelper = new ProgressHelper(context);
+        progressBar=new ProgressBar(context);
         mAlertType = alertType;
         mErrorInAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.error_frame_in);
         mErrorXInAnim = (AnimationSet)OptAnimationLoader.loadAnimation(getContext(), R.anim.error_x_in);
@@ -155,6 +161,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         mConfirmButton = (Button)findViewById(R.id.confirm_button);
         mCancelButton = (Button)findViewById(R.id.cancel_button);
         mProgressHelper.setProgressWheel((ProgressWheel)findViewById(R.id.progressWheel));
+        Sprite doubleBounce = new DoubleBounce();
+        progressBar.setIndeterminateDrawable(doubleBounce);
+
         mConfirmButton.setOnClickListener(this);
         mCancelButton.setOnClickListener(this);
 

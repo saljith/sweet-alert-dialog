@@ -116,7 +116,20 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             wheel:matProg_progressIndeterminate="true"
+            android:visibility="gone"
             android:layout_gravity="center" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress"
+            style="@style/SpinKitView.Large.DoubleBounce"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+
+            android:layout_gravity="center"
+            app:SpinKit_Color="#f06e4e" />
+
     </FrameLayout>
 
     <TextView
@@ -125,7 +138,7 @@
         android:layout_height="wrap_content"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:textColor="#1B1B1B"
+        android:textColor="#f06e4e"
         android:layout_marginTop="10dp"
         android:singleLine="true"
         android:text="@string/dialog_default_title" />
